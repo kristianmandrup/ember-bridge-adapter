@@ -88,26 +88,31 @@ DS.BridgeAdapter = DS.Adapter.extend(Ember.Evented,
       clientRecords
 
   createRecords: (store, type, records, options) ->
+    syncServer = true
     syncServer = options.syncServer if options?
     @clientAdapter.createRecords(store, type, records)
     @serverAdapter.createRecords(store, type, records) if syncServer
 
   updateRecords: (store, type, records, options) ->
+    syncServer = true
     syncServer = options.syncServer if options?
     @clientAdapter.updateRecords(store, type, records)
     @serverAdapter.updateRecords(store, type, records) if syncServer
 
   deleteRecords: (store, type, records, options true) ->
+    syncServer = true
     syncServer = options.syncServer if options?
     @clientAdapter.deleteRecords(store, type, records)
     @serverAdapter.deleteRecords(store, type, records) if syncServer
 
   dirtyRecordsForHasManyChange: (dirtySet, parent, relationship, options) ->
+    syncServer = true
     syncServer = options.syncServer if options?
     @clientAdapter.dirtyRecordsForHasManyChange(dirtySet, parent, relationship)
     @serverAdapter.dirtyRecordsForHasManyChange(dirtySet, parent, relationship) if syncServer
 
   dirtyRecordsForBelongsToChange: (dirtySet, child, relationship, options) ->
+    syncServer = true
     syncServer = options.syncServer if options?
     @clientAdapter.dirtyRecordsForBelongsToChange(dirtySet, parent, relationship)
     @serverAdapter.dirtyRecordsForBelongsToChange(dirtySet, parent, relationship) if syncServer

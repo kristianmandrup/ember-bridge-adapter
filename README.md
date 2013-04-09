@@ -59,6 +59,15 @@ Here is my naïve tweak to `store.createRecord` where I try to add an extra `loc
 
 Please feel free to browse through the code, experiment with it and make suggestions or improvements in order to get closer to a working implementation. Thanks!
 
+The key model methods should now take an optional options hash, which is passed around to the most essential functions of adapter, store, transaction etc.
+
+Currently two options are supported `syncServer: true` and `serverFirst: true`.
+The `syncServer` option is used to disable syncing with the server.
+serverFirst can be set in order to first try finding the record(s) on the server, before trying in the local storage. 
+
+Important: BridgeAdapter is still very experimental and needs further testing and improvement!!!
+
+
 ## Contributing
 
 1. Fork it
